@@ -15,7 +15,7 @@
 
       <div id="container">
         <p>{{ counterStore.count }}</p>
-        <button @click="() => counterStore.increment()">increment</button>
+        <ion-button @click="() => counterStore.increment()">increment</ion-button>
         <strong>Ready to create an app?</strong>
         <p>
           Start with Ionic
