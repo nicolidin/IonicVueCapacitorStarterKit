@@ -1,0 +1,7 @@
+{
+  "name": "ionicVue3AppFreelance",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
