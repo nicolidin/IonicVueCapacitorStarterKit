@@ -42,6 +42,9 @@ jspm_packages/
 # TypeScript v1 declaration files
 typings/
 
+# Native app folders
+android/
+
 # Optional npm cache directory
 .npm
 

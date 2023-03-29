@@ -12,11 +12,15 @@
     "format:fix": "yarn format --write"
   },
   "dependencies": {
+    "@capacitor-community/barcode-scanner": "^3.0.3",
+    "@capacitor/android": "4.7.0",
     "@capacitor/app": "4.1.1",
+    "@capacitor/camera": "^4.1.4",
     "@capacitor/core": "4.7.0",
     "@capacitor/haptics": "4.1.0",
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/status-bar": "4.1.1",
+    "@ionic-native/core": "^5.36.0",
     "@ionic/storage": "^3.0.6",
     "@ionic/vue": "^6.0.0",
     "@ionic/vue-router": "^6.0.0",
@@ -27,7 +31,7 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@capacitor/cli": "4.7.0",
+    "@capacitor/cli": "^4.7.1",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
@@ -47,9 +51,14 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-vue": "^9.8.0",
     "jest": "^27.3.1",
+    "jetifier": "^2.0.0",
     "prettier": "^2.8.7",
     "ts-jest": "^27.0.7",
     "typescript": "^4.3.5"
+  },
+  "ssl": {
+    "key": "./.ionic/ssl/cert.pem",
+    "cert": "./.ionic/ssl/key.pem"
   },
   "description": "An Ionic project",
   "main": "index.js",
