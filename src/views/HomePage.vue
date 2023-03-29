@@ -13,8 +13,8 @@
         </ion-toolbar>
       </ion-header>
 
-      <div id="container">
-        <p>opopopop</p>
+      <div id="container" class="container">
+        <p class="container__test">new</p>
         <h1>Hot Reload ?</h1>
         <h2>test</h2>
         <h2>test 2</h2>
@@ -111,7 +111,15 @@ function scanQrCode() {
 }
 </script>
 
+<style scoped lang="scss">
+
+.test {
+  font-size: 30px !important;
+  color: red !important;
+}
+</style>
 <style scoped>
+
 #container {
   text-align: center;
 
