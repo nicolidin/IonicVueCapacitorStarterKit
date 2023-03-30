@@ -30,7 +30,7 @@
         <ion-button @click="scanQrCode">Scan QrCode</ion-button>
         <h1>yow that's body</h1>
         <QrCodeScanner @open="onScanningOpen" />
-        <Geoloc/>
+        <Geoloc />
       </div>
     </ion-content>
     <div class="test"></div>
