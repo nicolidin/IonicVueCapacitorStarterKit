@@ -22,17 +22,18 @@
         <button>TESTT !</button>
         <ion-button @click="takePicture">Take picture</ion-button>
         <ion-button @click="() => counterStore.increment()"
-        >Increment</ion-button
+          >Increment</ion-button
         >
         <img :src="imgSrc" alt="" />
-        <body>
         body?
-        <div> bar code: {{ barCode }}</div>
+        <div>bar code: {{ barCode }}</div>
         <ion-button @click="scanQrCode">Scan QrCode</ion-button>
         <h1>yow that's body</h1>
-        </body>
+        <QrCodeScanner @open="onScanningOpen" />
+        <Geoloc/>
       </div>
     </ion-content>
+    <div class="test"></div>
   </ion-page>
 </template>
 
@@ -43,12 +44,14 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-    IonButton
+  IonButton,
 } from "@ionic/vue";
 import { useCounterStore } from "@/stores";
 import { onMounted, ref } from "vue";
 import { Camera, CameraResultType } from "@capacitor/camera";
 import { BarcodeScanner } from "@capacitor-community/barcode-scanner";
+import QrCodeScanner from "@/components/QrCodeScanner/QrCodeScanner.vue";
+import Geoloc from "@/components/Geoloc/Geoloc.vue";
 const counterStore = useCounterStore();
 
 const imgSrc = ref("");
@@ -71,29 +74,8 @@ async function takePicture() {
 
 function scanQrCode() {
   const startScan = async () => {
-      // Check if camera permission is granted
-
-    // console.log("check permission")
-    // const cameraPermission = await Camera.checkPermissions();
-    // console.log("after check perm")
-    // console.log("cameraPermission: ", cameraPermission)
-    // if (cameraPermission.camera !== 'granted') {
-    //
-    //   // Request camera permission
-    //   const permissionRequest = await Camera.requestPermissions();
-    //   if (permissionRequest.camera !== 'granted') {
-    //     console.log('Camera permission not granted');
-    //     return;
-    //   }
-    // }
-
     console.log("begin");
-    // Check camera permission
-    // This is just a simple example, check out the better checks below
     await BarcodeScanner.checkPermission();
-
-    // make background of WebView transparent
-    // note: if you are using ionic this might not be enough, check below
     BarcodeScanner.hideBackground();
 
     document.querySelector("body").classList.add("scanner-active");
@@ -109,17 +91,19 @@ function scanQrCode() {
   };
   startScan();
 }
+
+function onScanningOpen(event) {
+  console.log("onScanningUpdate, val : ", event);
+}
 </script>
 
 <style scoped lang="scss">
-
 .test {
   font-size: 30px !important;
   color: red !important;
 }
 </style>
 <style scoped>
-
 #container {
   text-align: center;
 
@@ -149,21 +133,19 @@ function scanQrCode() {
 }
 </style>
 
-<style >
+<style>
 body.scanner-active {
   --background: transparent;
   --ion-background-color: transparent;
   color: transparent;
   background-color: transparent;
-
 }
 
 body.scanner-active > * {
-
   --background: transparent;
   --ion-background-color: transparent;
 
   color: transparent;
-    /*display: none;*/
+  /*display: none;*/
 }
 </style>

@@ -43,7 +43,6 @@ jspm_packages/
 typings/
 
 # Native app folders
-android/
 
 # Optional npm cache directory
 .npm
